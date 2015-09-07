@@ -26,6 +26,12 @@ def update
   redirect_to "/posts/#{@post.id}"
 end
 
+def destroy
+  @post = Post.find(params[:id])
+  @post.destroy
+  redirect_to "/"
+end
+
 private
   def post_params
     params.require(:post).permit(
